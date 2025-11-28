@@ -15,8 +15,9 @@ langchain-core==0.3.63
 langchain-pinecone==0.2.13
 langchain-text-splitters==0.3.8
 
-# Pinecone - OLD VERSION ONLY (No 7.3.0, No plugins)
-pinecone-client==2.2.4
+# Pinecone - Compatible with langchain-pinecone
+# Note: langchain-pinecone requires pinecone>=6.0.0,<8.0.0
+# We don't specify pinecone here - let langchain-pinecone handle it
 
 # Embeddings & Models
 sentence-transformers==2.6.0

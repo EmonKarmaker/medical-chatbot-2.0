@@ -34,19 +34,16 @@ def initialize_components():
     """Initialize embeddings and Pinecone (cached)"""
     with st.spinner("📄 Loading AI components... (This may take 20-30 seconds on first run)"):
         from src.helper import download_hugging_face_embeddings
-        import pinecone
+        from pinecone import Pinecone
         
-        # Initialize Pinecone with OLD API (pinecone-client 2.2.4)
-        pinecone.init(
-            api_key=PINECONE_API_KEY,
-            environment="gcp-starter"
-        )
+        # Initialize Pinecone with NEW API (pinecone 7.x)
+        pc = Pinecone(api_key=PINECONE_API_KEY)
         
         embeddings = download_hugging_face_embeddings()
         
-        # Use OLD Pinecone API with langchain_community
-        from langchain_community.vectorstores import Pinecone as LangchainPinecone
-        docsearch = LangchainPinecone.from_existing_index(
+        # Use NEW Pinecone API with langchain_pinecone
+        from langchain_pinecone import PineconeVectorStore
+        docsearch = PineconeVectorStore.from_existing_index(
             index_name="medical-chatbot",
             embedding=embeddings
         )
