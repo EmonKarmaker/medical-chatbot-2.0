@@ -1,67 +1,29 @@
-# Streamlit framework
+# ============================================
+# CRITICAL: NO pinecone==7.3.0
+# CRITICAL: NO pinecone-plugin-assistant
+# ============================================
+
+# Web Framework
 streamlit==1.28.0
 
-# LangChain essentials (EXACT versions from your system)
+# LangChain - MINIMAL
 langchain==0.3.10
-langchain-community==0.3.10
-langchain-core==0.3.63
 langchain-pinecone==0.2.13
-langchain-text-splitters==0.3.8
 
-# Pinecone - USE OLD VERSION WITHOUT PLUGIN
+# Pinecone - OLD VERSION (NO PLUGINS)
 pinecone-client==2.2.4
 
-# Embeddings (EXACT versions from your system)
+# Embeddings
 sentence-transformers==2.6.0
-transformers==4.57.1
-tokenizers==0.22.1
 
-# PyTorch (CPU-only, your version)
+# PyTorch CPU-only
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.9.1+cpu
 
-# Core utilities (EXACT versions from your system)
+# Core
 python-dotenv==1.2.1
 requests==2.32.5
 pydantic==2.12.4
-pydantic_core==2.41.5
 
-# Critical: Lock packaging to version compatible with Streamlit
+# Lock packaging version
 packaging==23.2
-
-# Essential dependencies (EXACT versions from your system)
-numpy==1.26.4
-safetensors==0.7.0
-huggingface-hub==0.36.0
-filelock==3.20.0
-tqdm==4.67.1
-regex==2025.11.3
-
-# Scientific computing (EXACT versions from your system)
-scikit-learn==1.7.2
-scipy==1.15.3
-joblib==1.5.2
-threadpoolctl==3.6.0
-
-# Web framework
-Jinja2==3.1.6
-MarkupSafe==2.1.5
-typing-extensions==4.15.0
-
-# Streamlit dependencies
-altair==5.5.0
-blinker==1.9.0
-cachetools==5.5.2
-click==8.3.1
-gitpython==3.1.45
-importlib-metadata==6.11.0
-pillow==10.4.0
-protobuf==4.25.8
-pyarrow==22.0.0
-rich==13.9.4
-tenacity==8.5.0
-toml==0.10.2
-tornado==6.5.2
-tzlocal==5.3.1
-validators==0.35.0
-watchdog==6.0.0
