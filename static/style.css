@@ -1,0 +1,308 @@
+/* Medical Chatbot Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.chat {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card {
+    height: 500px;
+    border-radius: 15px !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.msg_head {
+    background: linear-gradient(135deg, #86A8E7, #7F7FD5);
+    border-radius: 15px 15px 0 0 !important;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+}
+
+.msg_card_body {
+    overflow-y: auto;
+    padding: 20px;
+    height: 400px;
+    background-color: rgba(248, 249, 250, 0.8);
+}
+
+/* Scrollbar styling */
+.msg_card_body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.msg_card_body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.msg_card_body::-webkit-scrollbar-thumb {
+    background: #86A8E7;
+    border-radius: 10px;
+}
+
+.msg_card_body::-webkit-scrollbar-thumb:hover {
+    background: #7F7FD5;
+}
+
+.type_msg {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid #e9ecef !important;
+    color: #495057 !important;
+    height: 60px !important;
+    overflow-y: auto;
+    border-radius: 15px 0 0 15px !important;
+    padding: 15px 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.type_msg:focus {
+    box-shadow: 0 0 0 0.2rem rgba(134, 168, 231, 0.25) !important;
+    outline: 0 !important;
+    border-color: #86A8E7 !important;
+    background-color: white !important;
+}
+
+.type_msg::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.send_btn {
+    border-radius: 0 15px 15px 0 !important;
+    background: linear-gradient(135deg, #86A8E7, #7F7FD5);
+    border: none !important;
+    color: white;
+    cursor: pointer;
+    height: 60px;
+    width: 70px;
+    transition: all 0.3s ease;
+}
+
+.send_btn:hover {
+    background: linear-gradient(135deg, #7F7FD5, #86A8E7);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(127, 127, 213, 0.3);
+}
+
+.send_btn:active {
+    transform: translateY(0);
+}
+
+.user_img {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    border: 3px solid white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user_img_msg {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.msg_cotainer {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #86A8E7, #7F7FD5);
+    padding: 15px 20px;
+    position: relative;
+    color: white;
+    max-width: 70%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+.msg_cotainer_send {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 15px 20px;
+    position: relative;
+    color: white;
+    max-width: 70%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+.msg_time {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    width: 100px;
+    font-weight: 500;
+}
+
+.msg_time_send {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    width: 100px;
+    font-weight: 500;
+    text-align: right;
+}
+
+.online_icon {
+    height: 15px;
+    width: 15px;
+    background-color: #4cd137;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0.2em;
+    right: 0.4em;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user_info {
+    margin-left: 15px;
+}
+
+.user_info span {
+    font-weight: 600;
+    font-size: 18px;
+    display: block;
+}
+
+.user_info p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Medical theme specific styles */
+.medical-badge {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+/* Loading animation */
+.typing-indicator {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 30px;
+}
+
+.typing-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    animation: typing 1.4s infinite ease-in-out;
+    margin: 0 2px;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% { 
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chat {
+        padding: 10px;
+    }
+    
+    .card {
+        height: 450px;
+    }
+    
+    .msg_card_body {
+        height: 350px;
+        padding: 15px;
+    }
+    
+    .msg_cotainer, .msg_cotainer_send {
+        max-width: 85%;
+        padding: 12px 15px;
+    }
+    
+    .user_img {
+        height: 35px;
+        width: 35px;
+    }
+    
+    .user_img_msg {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/* Animation for new messages */
+.message-enter {
+    animation: messageSlideIn 0.3s ease-out;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Medical information styling */
+.medical-info {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #4cd137;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.warning-note {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 3px solid #ffc107;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 12px;
+    color: #856404;
+}
