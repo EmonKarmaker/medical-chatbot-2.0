@@ -1,5 +1,4 @@
 import streamlit as st
-from langchain_pinecone import PineconeVectorStore
 from dotenv import load_dotenv
 import requests
 import os
@@ -35,9 +34,19 @@ def initialize_components():
     """Initialize embeddings and Pinecone (cached)"""
     with st.spinner("🔄 Loading AI components... (This may take 20-30 seconds on first run)"):
         from src.helper import download_hugging_face_embeddings
+        import pinecone
+        
+        # Initialize Pinecone with old API
+        pinecone.init(
+            api_key=PINECONE_API_KEY,
+            environment="gcp-starter"  # or your environment
+        )
         
         embeddings = download_hugging_face_embeddings()
-        docsearch = PineconeVectorStore.from_existing_index(
+        
+        # Use old Pinecone API
+        from langchain.vectorstores import Pinecone as LangchainPinecone
+        docsearch = LangchainPinecone.from_existing_index(
             index_name="medical-chatbot",
             embedding=embeddings
         )

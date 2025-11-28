@@ -10,10 +10,11 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements
 COPY requirements_streamlit.txt requirements.txt
 
-# Upgrade pip first
-RUN pip install --upgrade pip
+# Upgrade pip and install build tools
+RUN pip install --upgrade pip setuptools wheel
 
-# Install Python dependencies
+# Install Python dependencies (in order to handle conflicts)
+RUN pip install --no-cache-dir packaging==23.2
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Pre-download the sentence-transformers model
