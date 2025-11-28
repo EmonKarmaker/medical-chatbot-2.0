@@ -7,29 +7,25 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# CRITICAL: Copy the RIGHT requirements file
-# Make sure this file does NOT contain pinecone==7.3.0
-COPY requirements.txt .
+# Copy requirements FIRST
+COPY requirements_render.txt requirements.txt
 
 # Upgrade pip
 RUN pip install --upgrade pip
 
-# Install packaging FIRST to lock the version
-RUN pip install packaging==23.2
-
-# Install remaining dependencies
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Pre-download model
+# Pre-download the sentence-transformers model (saves time on first request)
 RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
 
-# Copy application
+# Copy application files
 COPY . .
 
-# Expose port
+# Expose Streamlit port
 EXPOSE 8501
 
-# Streamlit config
+# Create Streamlit config
 RUN mkdir -p ~/.streamlit && \
     echo "[server]" > ~/.streamlit/config.toml && \
     echo "headless = true" >> ~/.streamlit/config.toml && \

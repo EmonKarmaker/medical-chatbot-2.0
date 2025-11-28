@@ -1,29 +1,64 @@
 # ============================================
-# CRITICAL: NO pinecone==7.3.0
-# CRITICAL: NO pinecone-plugin-assistant
+# CRITICAL FIX: REMOVED pinecone==7.3.0
+# The conflict was: streamlit needs packaging<24
+# but pinecone 7.3.0's plugin needs packaging>=24.2
 # ============================================
 
 # Web Framework
-streamlit==1.28.0
+Flask==2.3.3
+gunicorn==21.2.0
 
-# LangChain - MINIMAL
+# LangChain - Using compatible versions
 langchain==0.3.10
+langchain-community==0.3.10
+langchain-core==0.3.63
 langchain-pinecone==0.2.13
+langchain-text-splitters==0.3.8
 
-# Pinecone - OLD VERSION (NO PLUGINS)
+# Pinecone - OLD VERSION ONLY (No 7.3.0, No plugins)
 pinecone-client==2.2.4
 
-# Embeddings
+# Embeddings & Models
 sentence-transformers==2.6.0
+transformers==4.57.1
 
 # PyTorch CPU-only
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.9.1+cpu
 
-# Core
+# Core Dependencies
 python-dotenv==1.2.1
 requests==2.32.5
 pydantic==2.12.4
 
-# Lock packaging version
+# Scientific Computing
+numpy==1.26.4
+safetensors==0.7.0
+tokenizers==0.22.1
+
+# Model Hub
+huggingface-hub==0.36.0
+filelock==3.20.0
+fsspec==2025.10.0
+
+# Math & Processing
+sympy==1.14.0
+networkx==3.4.2
+Jinja2==3.1.6
+MarkupSafe==2.1.5
+mpmath==1.3.0
+typing-extensions==4.15.0
+regex==2025.11.3
+tqdm==4.67.1
+
+# ML Tools
+scikit-learn==1.7.2
+scipy==1.15.3
+joblib==1.5.2
+threadpoolctl==3.6.0
+
+# Streamlit (requires packaging<24)
+streamlit==1.28.0
+
+# Lock packaging version to satisfy streamlit
 packaging==23.2

@@ -32,20 +32,20 @@ if 'initialized' not in st.session_state:
 @st.cache_resource
 def initialize_components():
     """Initialize embeddings and Pinecone (cached)"""
-    with st.spinner("🔄 Loading AI components... (This may take 20-30 seconds on first run)"):
+    with st.spinner("📄 Loading AI components... (This may take 20-30 seconds on first run)"):
         from src.helper import download_hugging_face_embeddings
         import pinecone
         
-        # Initialize Pinecone with old API
+        # Initialize Pinecone with OLD API (pinecone-client 2.2.4)
         pinecone.init(
             api_key=PINECONE_API_KEY,
-            environment="gcp-starter"  # or your environment
+            environment="gcp-starter"
         )
         
         embeddings = download_hugging_face_embeddings()
         
-        # Use old Pinecone API
-        from langchain.vectorstores import Pinecone as LangchainPinecone
+        # Use OLD Pinecone API with langchain_community
+        from langchain_community.vectorstores import Pinecone as LangchainPinecone
         docsearch = LangchainPinecone.from_existing_index(
             index_name="medical-chatbot",
             embedding=embeddings
