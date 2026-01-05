@@ -259,9 +259,9 @@ with st.sidebar:
     """)
     
     st.markdown("""
-    **Developed by:** [Your Name]  
-    **GitHub:** [Your Link]  
-    **LinkedIn:** [Your Link]
+    **Developed by:** Emon Karmoker  
+    **GitHub:** https://github.com/EmonKarmaker 
+    **LinkedIn:** https://www.linkedin.com/in/emon-karmoker-9308431b4/
     """)
 
 # Main chat interface
